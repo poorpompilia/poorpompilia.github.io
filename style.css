@@ -21,7 +21,7 @@
   --ink:     #1c1b18;       /* main text colour                */
   --mid:     #6b6860;       /* secondary / meta text           */
   --light:   #d8d2c6;       /* rule / border colour            */
-  --paper:   #f6f3ee;       /* page background                 */
+  --paper:   #f2f2f0;       /* page background                 */
   --accent:  #b07d3a;       /* ✏️  CHANGE: your accent colour  */
   --max:     660px;          /* max content width               */
   --serif:   'Cormorant Garamond', Georgia, serif;
