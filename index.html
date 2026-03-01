@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ✏️  CHANGE: Replace with your name and a short description for SEO -->
+  <title>Your Name — Researcher & Writer</title>
+  <meta name="description" content="Your Name is a researcher and freelance writer working on [your topics]. Based in [your city]." />
+
+  <!-- Fonts: Cormorant Garamond (elegant display) + DM Sans (clean body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Variables ─────────────────────────────────────────────── */
+    :root {
+      --ink:        #1a1a18;
+      --mid:        #6b6b60;
+      --light:      #d4cfc4;
+      --paper:      #f7f5f0;
+      --accent:     #8b4a2f;   /* ✏️  CHANGE: swap for any colour you like */
+      --max:        680px;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+    }
+
+    /* ── Reset ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Layout ────────────────────────────────────────────────── */
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    /* ── Header ────────────────────────────────────────────────── */
+    header {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--light);
+    }
+
+    .name {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      font-size: 0.875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ── Nav ───────────────────────────────────────────────────── */
+    nav {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    /* ── Sections ──────────────────────────────────────────────── */
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--light);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── About ─────────────────────────────────────────────────── */
+    .about-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      float: right;
+      margin: 0 0 1rem 2rem;
+      filter: grayscale(20%);
+      shape-outside: circle();
+    }
+
+    .bio p {
+      font-size: 1.05rem;
+      margin-bottom: 1em;
+    }
+
+    .bio p:last-child { margin-bottom: 0; }
+
+    .bio em { font-family: var(--serif); font-style: italic; }
+
+    .bio a {
+      color: var(--ink);
+      text-decoration-color: var(--accent);
+      text-underline-offset: 3px;
+    }
+
+    /* ── Work list ─────────────────────────────────────────────── */
+    .work-list {
+      list-style: none;
+    }
+
+    .work-list li {
+      padding: 1rem 0;
+      border-top: 1px solid var(--light);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem 1.5rem;
+      align-items: start;
+    }
+
+    .work-list li:first-child { border-top: none; padding-top: 0; }
+
+    .work-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    .work-title a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .work-title a:hover { border-color: var(--accent); }
+
+    .work-meta {
+      font-size: 0.825rem;
+      color: var(--mid);
+      margin-top: 0.2rem;
+    }
+
+    .work-year {
+      font-size: 0.825rem;
+      color: var(--mid);
+      white-space: nowrap;
+      padding-top: 0.15rem;
+    }
+
+    /* ── Research interests ────────────────────────────────────── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--light);
+      border-radius: 2rem;
+      color: var(--mid);
+    }
+
+    /* ── Contact ───────────────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-item label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-item a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-item a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    footer {
+      padding: 2rem 0;
+      font-size: 0.8rem;
+      color: var(--mid);
+    }
+
+    /* ── Fade-in on load ───────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    header, section {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    section:nth-of-type(2) { animation-delay: 0.1s; }
+    section:nth-of-type(3) { animation-delay: 0.2s; }
+    section:nth-of-type(4) { animation-delay: 0.3s; }
+    section:nth-of-type(5) { animation-delay: 0.4s; }
+
+    /* ── Mobile ────────────────────────────────────────────────── */
+    @media (max-width: 520px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .about-photo  { width: 90px; height: 90px; margin-left: 1.25rem; }
+      .work-list li { grid-template-columns: 1fr; }
+      .work-year    { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ HEADER ══════════════════════════════════════════════════ -->
+  <header>
+    <!-- ✏️  CHANGE: Your name -->
+    <h1 class="name">Your Name</h1>
+    <!-- ✏️  CHANGE: A one-line description of what you do -->
+    <p class="tagline">Researcher &amp; Freelance Writer</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#writing">Writing</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ══ ABOUT ═══════════════════════════════════════════════════ -->
+  <section id="about">
+    <p class="section-label">About</p>
+
+    <div class="bio">
+      <!-- ✏️  CHANGE: Replace placeholder src with your photo, or delete the <img> tag -->
+      <img
+        class="about-photo"
+        src="photo.jpg"
+        alt="Portrait of Your Name"
+        onerror="this.style.display='none'"
+      />
+
+      <!-- ✏️  CHANGE: Write your bio here. Use <em>italics</em> for titles. -->
+      <p>
+        Your Name is a researcher and writer based in [City]. Their work focuses on
+        [your main area], exploring questions of [theme] and [theme]. They are a
+        [Fellow / PhD candidate / Associate] at [Institution].
+      </p>
+      <p>
+        Their writing has appeared in <em>Publication A</em>, <em>Publication B</em>,
+        and <a href="#">The Journal of Something</a>. Their book
+        <em><a href="#">Title of Book</a></em> was published by [Press] in [year].
+      </p>
+      <p>
+        Previously, they held positions at [University] and [Organisation].
+        They are available for commissions, collaborations, and speaking engagements.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ SELECTED WRITING ════════════════════════════════════════ -->
+  <section id="writing">
+    <p class="section-label">Selected Writing</p>
+
+    <ul class="work-list">
+      <!-- ✏️  CHANGE: Replace with your own published pieces. Duplicate <li> blocks as needed. -->
+
+      <li>
+        <div>
+          <div class="work-title">
+            <a href="#">'Your Article Title Here'</a>
+          </div>
+          <div class="work-meta">Publication Name</div>
+        </div>
+        <div class="work-year">2024</div>
+      </li>
+
+      <li>
+        <div>
+          <div class="work-title">
+            <a href="#">'Another Piece You Have Written'</a>
+          </div>
+          <div class="work-meta">Another Publication</div>
+        </div>
+        <div class="work-year">2024</div>
+      </li>
+
+      <li>
+        <div>
+          <div class="work-title">
+            <em>Book Title</em> — your book or major report
+          </div>
+          <div class="work-meta">Publisher Name</div>
+        </div>
+        <div class="work-year">2023</div>
+      </li>
+
+      <li>
+        <div>
+          <div class="work-title">
+            <a href="#">'Essay or Long-form Article'</a>
+          </div>
+          <div class="work-meta">Journal or Magazine</div>
+        </div>
+        <div class="work-year">2022</div>
+      </li>
+
+      <li>
+        <div>
+          <div class="work-title">
+            <a href="#">'Earlier Piece'</a>
+          </div>
+          <div class="work-meta">Publication</div>
+        </div>
+        <div class="work-year">2021</div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ══ RESEARCH ════════════════════════════════════════════════ -->
+  <section id="research">
+    <p class="section-label">Research</p>
+
+    <!-- ✏️  CHANGE: Describe your current research focus -->
+    <p style="font-size: 1.05rem; margin-bottom: 1.25rem;">
+      Current research focuses on [topic]. This project examines [brief description],
+      drawing on [methods or disciplines]. Earlier work addressed [previous topic].
+    </p>
+
+    <!-- ✏️  CHANGE: Add or remove tags that reflect your interests -->
+    <div class="tags">
+      <span class="tag">Your Research Theme</span>
+      <span class="tag">Another Theme</span>
+      <span class="tag">Methodology</span>
+      <span class="tag">Geographic Focus</span>
+      <span class="tag">Disciplinary Field</span>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ═════════════════════════════════════════════════ -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+
+    <p style="margin-bottom: 1.5rem; font-size: 1.05rem;">
+      Available for commissions, editorial collaborations, academic inquiries,
+      and speaking engagements.
+    </p>
+
+    <div class="contact-grid">
+
+      <!-- ✏️  CHANGE: Your email -->
+      <div class="contact-item">
+        <label>Email</label>
+        <a href="mailto:you@yourdomain.com">you@yourdomain.com</a>
+      </div>
+
+      <!-- ✏️  CHANGE: Your Twitter/X handle, or delete this block -->
+      <div class="contact-item">
+        <label>Twitter / X</label>
+        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener">@yourhandle</a>
+      </div>
+
+      <!-- ✏️  CHANGE: Your institution profile, or delete -->
+      <div class="contact-item">
+        <label>Institution</label>
+        <a href="#" target="_blank" rel="noopener">University Profile</a>
+      </div>
+
+      <!-- ✏️  CHANGE: Your LinkedIn, or delete -->
+      <div class="contact-item">
+        <label>LinkedIn</label>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">yourprofile</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════════ -->
+  <footer>
+    <!-- ✏️  CHANGE: Your name -->
+    &copy; <span id="yr"></span> Your Name
+  </footer>
+
+</div>
+
+<script>
+  // Auto-updates the year in the footer
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
