@@ -3,174 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Your Name</title>
-  <meta name="description" content="Get in touch for commissions, collaborations, and academic enquiries." />
+  <title>Contact — Eliza Haughton-Shaw</title>
+  <meta name="description" content="Get in touch with Eliza Haughton-Shaw." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* Contact items */
-    .contact-list {
-      list-style: none;
-      margin-top: 0.5rem;
+    .contact-email {
+      margin-top: 1rem;
+      font-size: 0.95rem;
     }
 
-    .contact-list li {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 0.5rem 1.5rem;
-      padding: 1.1rem 0;
-      border-bottom: 1px solid var(--light);
-      align-items: center;
-    }
-
-    .contact-list li:first-child { border-top: 1px solid var(--light); }
-
-    .contact-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-
-    .contact-value {
-      font-size: 1rem;
-    }
-
-    .contact-value a {
+    .contact-email a {
       color: var(--ink);
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s, border-color 0.2s;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      transition: color 0.2s;
     }
 
-    .contact-value a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    /* Placeholder text for items not yet filled in */
-    .tba {
-      color: var(--light);
-      font-style: italic;
-      font-size: 0.9rem;
-    }
-
-    .intro-text {
-      max-width: 50ch;
-      margin-bottom: 2.5rem;
-    }
-
-    @media (max-width: 480px) {
-      .contact-list li {
-        grid-template-columns: 1fr;
-        gap: 0.2rem;
-      }
-    }
+    .contact-email a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- ══ SITE HEADER ════════════════════════════════════════ -->
   <header class="site-header">
-    <a class="site-name" href="about.html">Eliza Haughton-Shaw</a><!-- ✏️  CHANGE: your name -->
+    <a class="site-name" href="about.html">Eliza Haughton-Shaw</a>
     <nav>
       <a href="about.html">About</a>
       <a href="research.html">Research</a>
       <a href="contact.html" class="active">Contact</a>
     </nav>
   </header>
-  <!-- ════════════════════════════════════════════════════════ -->
-
 
   <main>
     <p class="page-title">Contact</p>
 
-    <!-- ✏️  CHANGE: Edit this intro paragraph -->
-    <p class="intro-text">
-      Available for commissions, editorial collaborations, academic enquiries,
-      and speaking engagements. The best way to reach me is by email.
+    <!-- ✏️  CHANGE: edit this blurb if you'd like different wording -->
+    <p>Please reach out to me via email for all enquiries.</p>
+
+    <!-- ✏️  CHANGE: update the email address in both the href (mailto:...)
+         and the visible text between the <a> tags               -->
+    <p class="contact-email">
+      <a href="mailto:eliza.haughton-shaw@outlook.com">eliza.haughton-shaw@outlook.com</a>
     </p>
-
-
-    <!-- ══════════════════════════════════════════════════════
-         CONTACT DETAILS
-         ✏️  HOW TO EDIT EACH ITEM:
-
-         EMAIL:
-           Replace  you@email.com  in both the href and the
-           visible text. Keep the  mailto:  prefix in the href.
-
-         TWITTER / SOCIAL:
-           Replace  @yourhandle  and the URL.
-           To remove a row entirely, delete the whole <li>.
-
-         INSTITUTION:
-           Add the URL to your university staff profile page.
-
-         TO ADD A NEW ROW:
-           Copy any <li>...</li> block and edit the label and value.
-         ══════════════════════════════════════════════════════ -->
-
-    <ul class="contact-list">
-
-      <li>
-        <span class="contact-label">Email</span>
-        <span class="contact-value">
-          <!-- ✏️  CHANGE: your email address (appears twice below) -->
-          <a href="mailto:you@email.com">you@email.com</a>
-        </span>
-      </li>
-
-      <li>
-        <span class="contact-label">Institution</span>
-        <span class="contact-value">
-          <!-- ✏️  CHANGE: link to your university/institution profile page -->
-          <a href="#" target="_blank" rel="noopener">University profile</a>
-          <!-- If you don't have one yet, replace the line above with: -->
-          <!-- <span class="tba">To be added</span> -->
-        </span>
-      </li>
-
-      <li>
-        <span class="contact-label">Twitter / X</span>
-        <span class="contact-value">
-          <!-- ✏️  CHANGE: your Twitter/X handle and URL.
-               Delete this <li> if you don't use Twitter. -->
-          <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener">@yourhandle</a>
-        </span>
-      </li>
-
-      <li>
-        <span class="contact-label">Academia.edu</span>
-        <span class="contact-value">
-          <!-- ✏️  CHANGE: your Academia.edu or ORCID profile link,
-               or delete this <li> if not applicable -->
-          <span class="tba">To be added</span>
-        </span>
-      </li>
-
-      <li>
-        <span class="contact-label">ORCID</span>
-        <span class="contact-value">
-          <!-- ✏️  CHANGE: your ORCID ID and link — format:
-               https://orcid.org/0000-0000-0000-0000
-               or delete this row if not applicable -->
-          <span class="tba">To be added</span>
-        </span>
-      </li>
-
-    </ul>
-
   </main>
 
   <footer class="site-footer">
-    &copy; <span id="yr"></span> Your Name <!-- ✏️  CHANGE: your name -->
+    &copy; <span id="yr"></span> Eliza Haughton-Shaw
   </footer>
 
 </div>

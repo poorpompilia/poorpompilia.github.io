@@ -8,54 +8,49 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- ── Research-page-only styles ────────────────────────── -->
   <style>
-    /* Section heading (Books, Articles, etc.) */
+    /* ── SECTION HEADING (Books, Articles, etc.) ──────────── */
     .pub-section-title {
-      font-family: var(--serif);
-      font-size: 1.15rem;
+      font-family: var(--sans);
+      font-size: 0.72rem;
       font-weight: 400;
-      margin-bottom: 1.25rem;
-      margin-top: 2.5rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--light);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+      margin-top: 2rem;
     }
 
     .pub-section-title:first-of-type { margin-top: 0; }
 
-    /* Individual publication entry */
+    /* ── PUBLICATION LIST — no lines ──────────────────────── */
     .pub-list {
       list-style: none;
     }
 
     .pub-list li {
       display: grid;
-      grid-template-columns: 3rem 1fr;
+      grid-template-columns: 3.5rem 1fr;
       gap: 0 1rem;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--light);
+      padding: 0.55rem 0;
+      /* No border — lines removed */
     }
-
-    .pub-list li:last-child { border-bottom: none; }
 
     /* Year column */
     .pub-year {
       font-size: 0.8rem;
       color: var(--mid);
-      padding-top: 0.2rem;
+      padding-top: 0.1rem;
       white-space: nowrap;
     }
 
-    /* Title + venue */
-    .pub-body {}
-
+    /* Title line */
     .pub-title {
-      font-family: var(--serif);
-      font-size: 1.05rem;
+      font-size: 0.92rem;
       line-height: 1.5;
     }
 
@@ -71,46 +66,58 @@
       border-color: var(--accent);
     }
 
+    /* Venue / detail line */
     .pub-venue {
       font-size: 0.82rem;
       color: var(--mid);
-      margin-top: 0.15rem;
+      margin-top: 0.1rem;
     }
 
-    /* Status badge (Forthcoming, Under review, etc.) */
-    .badge {
-      display: inline-block;
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.15rem 0.5rem;
-      border: 1px solid var(--light);
-      border-radius: 2rem;
+    /* Status text inline — e.g. (forthcoming), (under consideration) */
+    .pub-status {
+      font-size: 0.82rem;
       color: var(--mid);
-      margin-left: 0.4rem;
-      vertical-align: middle;
+      font-style: italic;
+      font-family: var(--sans);
+    }
+
+    /* Books section: no year column, simpler layout */
+    .book-list {
+      list-style: none;
+    }
+
+    .book-list li {
+      padding: 0.55rem 0;
+    }
+
+    .book-title {
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .book-detail {
+      font-size: 0.82rem;
+      color: var(--mid);
+      margin-top: 0.1rem;
     }
 
     @media (max-width: 480px) {
       .pub-list li { grid-template-columns: 1fr; }
-      .pub-year { margin-bottom: 0.2rem; }
+      .pub-year { margin-bottom: 0.1rem; }
     }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- ══ SITE HEADER ════════════════════════════════════════ -->
   <header class="site-header">
-    <a class="site-name" href="about.html">Eliza Haughton-Shaw</a><!-- ✏️  CHANGE: your name -->
+    <a class="site-name" href="about.html">Eliza Haughton-Shaw</a>
     <nav>
       <a href="about.html">About</a>
       <a href="research.html" class="active">Research</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-  <!-- ════════════════════════════════════════════════════════ -->
-
 
   <main>
     <p class="page-title">Research &amp; Publications</p>
@@ -118,37 +125,30 @@
     <!-- ══════════════════════════════════════════════════════
          BOOKS
          ✏️  HOW TO EDIT:
-           • Change the title inside <em>...</em>
-           • Edit the description text after the <br>
-           • Add a link: wrap the title in <a href="URL">...</a>
-           • Add a new book: copy an entire <li>...</li> block
+           • Edit the title inside <em>...</em>
+           • Edit the detail line (publisher, co-editor, status)
+           • Add a new book: copy a <li>...</li> block
          ══════════════════════════════════════════════════════ -->
     <h2 class="pub-section-title">Books</h2>
 
-    <ul class="pub-list">
+    <ul class="book-list">
 
       <li>
-        <div class="pub-year">—</div>
-        <div class="pub-body">
-          <div class="pub-title">
-            <em>The Associative Imagination</em>
-            <span class="badge">Under contract</span>
-          </div>
-          <div class="pub-venue">
-            Edited with Dr Louis Klee. Oxford Twenty-First Century Approaches
-            to Literature series. Oxford University Press.
-          </div>
+        <div class="book-title">
+          <em>The Associative Imagination</em>
+        </div>
+        <div class="book-detail">
+          Edited with Dr Louis Klee. Oxford Twenty-First Century Approaches to Literature series.
+          Oxford University Press. <span class="pub-status">(Under contract)</span>
         </div>
       </li>
 
       <li>
-        <div class="pub-year">—</div>
-        <div class="pub-body">
-          <div class="pub-title">
-            <em>Writing Eccentricity: Character and Form, Johnson to Dickens</em>
-            <span class="badge">In progress</span>
-          </div>
-          <div class="pub-venue">First draft of manuscript complete.</div>
+        <div class="book-title">
+          <em>Writing Eccentricity: Character and Form, Johnson to Dickens</em>
+        </div>
+        <div class="book-detail">
+          First draft of manuscript complete. <span class="pub-status">(In progress)</span>
         </div>
       </li>
 
@@ -159,10 +159,9 @@
          JOURNAL ARTICLES & BOOK CHAPTERS
          ✏️  HOW TO EDIT:
            • Change the year in <div class="pub-year">
-           • Edit or add a link: <a href="URL">article title</a>
-           • Edit the venue (journal name, volume, page numbers)
-           • To add a new article: copy a <li>...</li> block
-           • To mark something forthcoming: add <span class="badge">Forthcoming</span>
+           • Edit the title, venue, and status text
+           • To add a new entry: copy a <li>...</li> block
+           • Status text goes inside <span class="pub-status">
          ══════════════════════════════════════════════════════ -->
     <h2 class="pub-section-title">Journal Articles &amp; Book Chapters</h2>
 
@@ -171,13 +170,11 @@
       <li>
         <div class="pub-year">2026</div>
         <div class="pub-body">
-          <div class="pub-title">
-            'Clare's Byronic Impersonation'
-            <span class="badge">Forthcoming</span>
-          </div>
+          <div class="pub-title">'Clare's Byronic Impersonation'</div>
           <div class="pub-venue">
             In <em>Poetic Allusion in the Long Nineteenth Century</em>,
             ed. James Williams and Jane Wright. Cambridge University Press.
+            <span class="pub-status">(Forthcoming)</span>
           </div>
         </div>
       </li>
@@ -185,13 +182,11 @@
       <li>
         <div class="pub-year">2026</div>
         <div class="pub-body">
-          <div class="pub-title">
-            'Habit'
-            <span class="badge">Forthcoming</span>
-          </div>
+          <div class="pub-title">'Habit'</div>
           <div class="pub-venue">
             In <em>The Oxford Handbook of Romantic Poetry</em>,
             ed. Andrew Hodgson and Matthew Scott. Oxford University Press.
+            <span class="pub-status">(Forthcoming)</span>
           </div>
         </div>
       </li>
@@ -210,11 +205,11 @@
       <li>
         <div class="pub-year">2026</div>
         <div class="pub-body">
-          <div class="pub-title">
-            'Writing and Embodiment'
-            <span class="badge">Under consideration</span>
+          <div class="pub-title">'Writing and Embodiment'</div>
+          <div class="pub-venue">
+            <em>New Formations.</em>
+            <span class="pub-status">(Under consideration)</span>
           </div>
-          <div class="pub-venue"><em>New Formations</em></div>
         </div>
       </li>
 
@@ -232,25 +227,17 @@
       <li>
         <div class="pub-year">2025</div>
         <div class="pub-body">
-          <div class="pub-title">
-            '"The set is now broken": Sibling Influence in the work of
-            Charles Lamb and William Wordsworth'
-          </div>
-          <div class="pub-venue">
-            <em>Textual Practice</em>, 39.3, 1458–1477
-          </div>
+          <div class="pub-title">'"The set is now broken": Sibling Influence in the work of Charles Lamb and William Wordsworth'</div>
+          <div class="pub-venue"><em>Textual Practice</em>, 39.3, 1458–1477</div>
         </div>
       </li>
 
       <li>
         <div class="pub-year">2022</div>
         <div class="pub-body">
-          <div class="pub-title">
-            'Habit, Romanticism, and the Literary Imagination'
-          </div>
+          <div class="pub-title">'Habit, Romanticism, and the Literary Imagination'</div>
           <div class="pub-venue">
-            Co-written with Hannah Tran.
-            <em>The Cambridge Quarterly</em>, 51.3, 188–206
+            Co-written with Hannah Tran. <em>The Cambridge Quarterly</em>, 51.3, 188–206
           </div>
         </div>
       </li>
@@ -284,9 +271,7 @@
       <li>
         <div class="pub-year">2025</div>
         <div class="pub-body">
-          <div class="pub-title">
-            Review of Matthew Ward, <em>Romantic Poets and the Laughter of Feeling</em>
-          </div>
+          <div class="pub-title">Review of Matthew Ward, <em>Romantic Poets and the Laughter of Feeling</em></div>
           <div class="pub-venue"><em>Studies in Romanticism</em></div>
         </div>
       </li>
@@ -318,9 +303,7 @@
       <li>
         <div class="pub-year">2020</div>
         <div class="pub-body">
-          <div class="pub-title">
-            'Defying Gravity': review of Josh Cohen, <em>Not Working: Why We Have to Stop</em>
-          </div>
+          <div class="pub-title">'Defying Gravity': review of Josh Cohen, <em>Not Working: Why We Have to Stop</em></div>
           <div class="pub-venue"><em>The London Magazine</em></div>
         </div>
       </li>
@@ -330,50 +313,50 @@
 
     <!-- ══════════════════════════════════════════════════════
          WORK IN PROGRESS
+         ✏️  Status appears as plain italic text within the entry.
          ══════════════════════════════════════════════════════ -->
     <h2 class="pub-section-title">Work in Progress</h2>
 
     <ul class="pub-list">
 
       <li>
-        <div class="pub-year">In progress</div>
+        <div class="pub-year"></div>
         <div class="pub-body">
-          <div class="pub-title">
-            'The scale of close reading in Thomas Hardy's
-            <em>A Pair of Blue Eyes</em> (1873) and
-            <em>The Return of the Native</em> (1878)'
-          </div>
+          <div class="pub-title">'The scale of close reading in Thomas Hardy's <em>A Pair of Blue Eyes</em> (1873) and <em>The Return of the Native</em> (1878)'</div>
+          <div class="pub-venue"><span class="pub-status">In progress</span></div>
         </div>
       </li>
 
       <li>
-        <div class="pub-year">Contracted</div>
+        <div class="pub-year"></div>
         <div class="pub-body">
-          <div class="pub-title">
-            'Introduction' to <em>The Associative Imagination</em>
-          </div>
+          <div class="pub-title">'Introduction' to <em>The Associative Imagination</em></div>
           <div class="pub-venue">
             Co-written with Louis Klee. Oxford University Press.
+            <span class="pub-status">Contracted</span>
           </div>
         </div>
       </li>
 
       <li>
-        <div class="pub-year">In progress</div>
+        <div class="pub-year"></div>
         <div class="pub-body">
           <div class="pub-title">'The Writer's Body'</div>
           <div class="pub-venue">
-            In <em>Symptoms of Writing</em>, ed. Devorah Baum and Siddharth Soni.
-            Under consideration with Bloomsbury Academic.
+            In <em>Symptoms of Writing</em>, ed. Devorah Baum and Siddharth Soni. Bloomsbury Academic.
+            <span class="pub-status">Under consideration</span>
           </div>
         </div>
       </li>
 
       <li>
-        <div class="pub-year">In prep</div>
+        <div class="pub-year"></div>
         <div class="pub-body">
           <div class="pub-title">'Liking Isherwood'</div>
-          <div class="pub-venue">Co-written with Conrad Steel.</div>
+          <div class="pub-venue">
+            Co-written with Conrad Steel.
+            <span class="pub-status">In preparation</span>
+          </div>
         </div>
       </li>
 
@@ -382,7 +365,7 @@
   </main>
 
   <footer class="site-footer">
-    &copy; <span id="yr"></span> Your Name <!-- ✏️  CHANGE: your name -->
+    &copy; <span id="yr"></span> Eliza Haughton-Shaw
   </footer>
 
 </div>

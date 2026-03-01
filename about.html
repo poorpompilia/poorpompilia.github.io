@@ -3,114 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ═══════════════════════════════════════════════════════
-       ✏️  SEO: Edit the title and description below.
-       The description is what appears in Google search results.
-       ═══════════════════════════════════════════════════════ -->
-  <title>"Eliza Haughton-Shaw — Writer & Researcher"</title>
+  <title>Eliza Haughton-Shaw — Writer & Researcher</title>
   <meta name="description" content="Writer, teacher and researcher based in South-East London. Working on Romanticism, philosophy and psychoanalysis." />
 
-  <!-- Fonts: Cormorant Garamond (headings) + Jost (body).
-       To try different fonts, visit fonts.google.com, pick a pair,
-       and replace the link href AND the font names in style.css -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- ── About-page-only styles ──────────────────────────── -->
   <style>
-    /* Photo + bio layout */
-    .about-grid {
+    /* ── ABOUT PAGE LAYOUT ────────────────────────────────────
+       Full-height photo on the left, all text content on the right.
+       The photo column is 38% of the page width.
+       ✏️  To adjust the photo width, change the 38% below.     */
+    .about-layout {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 2.5rem;
+      grid-template-columns: 38% 1fr;
+      gap: 0 3rem;
       align-items: start;
-      margin-bottom: 2.5rem;
     }
 
-    /* ═══════════════════════════════════════════════════════
-       PHOTO
-       ─────────────────────────────────────────────────────
-       ✏️  TO ADD YOUR REAL PHOTO:
-         1. Save your photo in the same folder as this file.
-         2. Name it  photo.jpg  (or .png — just match the
-            extension in the src="" attribute below).
-         3. Delete the placeholder <div> and uncomment the
-            <img> tag. Done!
-       ═══════════════════════════════════════════════════════ */
-    .photo-wrap {
-      width: 160px;
-      aspect-ratio: 3 / 4;
-    }
-
-    /* Placeholder shown until you add a real photo */
-    .photo-placeholder {
+    /* Photo fills its column fully */
+    .photo-col img {
       width: 100%;
-      height: 100%;
-      background: var(--light);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: var(--mid);
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: 1px dashed var(--mid);
-    }
-
-    .photo-placeholder svg { opacity: 0.4; }
-
-    /* Real photo styling (uncomment <img> below to use) */
-    .photo-real {
-      width: 100%;
-      height: 100%;
+      height: auto;
+      display: block;
       object-fit: cover;
       object-position: center top;
-      display: block;
     }
 
-    /* Italic intro pull-quote */
-    .intro-quote {
-      font-family: var(--serif);
-      font-size: 1.25rem;
+    /* Text column: name/nav already in header above,
+       this holds bio and work sections */
+    .text-col {
+      padding-top: 0.25rem;
+    }
+
+    .intro-line {
+      font-size: 0.92rem;
+      color: var(--mid);
+      margin-bottom: 1.25rem;
       font-style: italic;
-      line-height: 1.6;
-      color: var(--mid);
-      border-left: 2px solid var(--accent);
-      padding-left: 1.25rem;
-      margin-bottom: 2rem;
-      max-width: 52ch;
+      font-family: var(--sans);
     }
 
-    /* Keywords / interest tags */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-    }
+    /* Space between bio sections */
+    .text-col p { margin-bottom: 0.9em; }
 
-    .tag {
-      font-size: 0.78rem;
-      padding: 0.25rem 0.75rem;
-      border: 1px solid var(--light);
-      border-radius: 2rem;
-      color: var(--mid);
-      letter-spacing: 0.04em;
-    }
+    .text-col .label { margin-top: 1.75rem; }
 
-    @media (max-width: 520px) {
-      .about-grid {
+    /* Tags sit at the bottom — moved here from about page */
+    .tags-section { margin-top: 1.75rem; }
+
+    @media (max-width: 640px) {
+      .about-layout {
         grid-template-columns: 1fr;
       }
-      .photo-wrap {
-        width: 120px;
-        aspect-ratio: 1;
+      .photo-col img {
+        max-height: 55vw;
+        object-fit: cover;
+        object-position: top;
+        margin-bottom: 1.5rem;
       }
     }
   </style>
@@ -118,46 +71,35 @@
 <body>
 <div class="page">
 
-  <!-- ══ SITE HEADER — same on every page ═══════════════════ -->
   <header class="site-header">
-    <!-- ✏️  CHANGE: Replace with your name -->
     <a class="site-name" href="about.html">Eliza Haughton-Shaw</a>
     <nav>
-      <a href="about.html"   class="active">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="research.html">Research</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-  <!-- ════════════════════════════════════════════════════════ -->
-
 
   <main>
+    <div class="about-layout">
 
-    <!-- ── PHOTO + INTRO BIO ──────────────────────────────── -->
-    <div class="about-grid">
-
-      <div class="photo-wrap">
-
-
-
+      <!-- ── LEFT: PHOTO ──────────────────────────────────────
+           ✏️  photo.jpg should be in the same folder as this file.
+           Change src="photo.jpg" if you rename the file.         -->
+      <div class="photo-col">
         <img
-          class="photo-real"
           src="photo.jpg"
-          alt="Portrait of Your Name"
+          alt="Portrait of Eliza Haughton-Shaw"
         />
-      
-
       </div>
 
-      <div>
-        <!-- ✏️  CHANGE: Edit this one-line description of yourself -->
-        <p class="intro-quote">
-          Writer, teacher and researcher based in South-East London.
-        </p>
+      <!-- ── RIGHT: ALL TEXT ──────────────────────────────── -->
+      <div class="text-col">
 
-        <!-- ✏️  CHANGE: Edit your bio paragraphs here.
-             Use <em>Title</em> for italicised book/journal titles.
-             Use <a href="URL">linked text</a> to add hyperlinks. -->
+        <!-- ✏️  CHANGE: one-line description -->
+        <p class="intro-line">Writer, teacher and researcher based in South-East London.</p>
+
+        <!-- ✏️  CHANGE: bio paragraphs. Use <em>Title</em> for italics. -->
         <p>
           Between 2021 and 2025, I was an Early-Career Research Fellow at
           Corpus Christi College, Cambridge. Before this, I completed my
@@ -171,66 +113,60 @@
           psychotherapy at the Institute of Psychoanalysis and at London's
           Maudsley Hospital.
         </p>
+
+        <span class="label">Work</span>
+
+        <!-- ✏️  CHANGE: main book / project paragraph -->
+        <p>
+          My work focuses mainly on Romanticism, philosophy and psychoanalysis in
+          the eighteenth and nineteenth century. My first monograph,
+          <em>Writing Eccentricity: Characters and Forms, Johnson to Dickens</em>
+          examines the scope of a familiar descriptive or evaluative term: it
+          jointly concerns 'eccentrics' as characters and 'eccentricity' as a
+          stylistic signature across a series of literary and philosophical case
+          studies. Through this unobtrusive word, it tells the (hi)story of our
+          conflicted cultural relationship to ideas as various as uniformity,
+          freedom, creativity, and productivity.
+        </p>
+
+        <!-- ✏️  CHANGE: other projects paragraph -->
+        <p>
+          Alongside this book, I am working on two other projects. A book
+          co-edited with Dr Louis Klee, <em>The Associative Imagination</em>
+          (under contract with Oxford University Press) provides the first
+          dedicated account of the idea of 'association' in the distinct yet
+          entangled histories of literature, philosophy, and psychoanalysis.
+        </p>
+        <p>
+          A practice-based project co-researched with Professor Devorah Baum and
+          Dr Siddharth Soni is entitled <em>Symptoms of Writing</em>. It aims to
+          foreground the difficult symptoms writers face in their writing practice,
+          looking to literary, diaristic, and medical case studies to understand
+          and re-theorise the 'symptoms' of writing: blocks, paranoias, aphasias,
+          avoidance, compulsions.
+        </p>
+
+        <!-- ── RESEARCH INTEREST TAGS ────────────────────────
+             ✏️  Add, remove, or rename tags freely.            -->
+        <div class="tags-section">
+          <span class="label">Research interests</span>
+          <div class="tags">
+            <span class="tag">Romanticism</span>
+            <span class="tag">Philosophy</span>
+            <span class="tag">Psychoanalysis</span>
+            <span class="tag">18th-century literature</span>
+            <span class="tag">19th-century literature</span>
+            <span class="tag">Literary theory</span>
+            <span class="tag">History of ideas</span>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <!-- ── EXTENDED BIO ────────────────────────────────────── -->
-    <span class="label">Work</span>
-
-    <!-- ✏️  CHANGE: Edit this paragraph about your main book / project -->
-    <p>
-      My work focuses mainly on Romanticism, philosophy and psychoanalysis in
-      the eighteenth and nineteenth century. My first monograph,
-      <em>Writing Eccentricity: Characters and Forms, Johnson to Dickens</em>
-      examines the scope of a familiar descriptive or evaluative term: it
-      jointly concerns 'eccentrics' as characters and 'eccentricity' as a
-      stylistic signature across a series of literary and philosophical case
-      studies. Through this unobtrusive word, it tells the (hi)story of our
-      conflicted cultural relationship to ideas as various as uniformity,
-      freedom, creativity, and productivity.
-    </p>
-
-    <hr class="divider" />
-
-    <!-- ✏️  CHANGE: Edit this paragraph about your other projects -->
-    <p>
-      Alongside this book, I am working on two other projects. A book
-      co-edited with Dr Louis Klee, <em>The Associative Imagination</em>
-      (under contract with Oxford University Press) provides the first
-      dedicated account of the idea of 'association' in the distinct yet
-      entangled histories of literature, philosophy, and psychoanalysis.
-    </p>
-    <p>
-      A practice-based project co-researched with Professor Devorah Baum and
-      Dr Siddharth Soni is entitled <em>Symptoms of Writing</em>. It aims to
-      foreground the difficult symptoms writers face in their writing practice,
-      looking to literary, diaristic, and medical case studies to understand
-      and re-theorise the 'symptoms' of writing: blocks, paranoias, aphasias,
-      avoidance, compulsions.
-    </p>
-
-    <hr class="divider" />
-
-    <!-- ── RESEARCH INTEREST TAGS ──────────────────────────
-         ✏️  CHANGE: Add, remove, or rename these tags to reflect
-         your own research interests. Useful for searchability. -->
-    <span class="label">Research interests</span>
-    <div class="tags">
-      <span class="tag">Romanticism</span>
-      <span class="tag">Philosophy</span>
-      <span class="tag">Psychoanalysis</span>
-      <span class="tag">18th-century literature</span>
-      <span class="tag">19th-century literature</span>
-      <span class="tag">Literary theory</span>
-      <span class="tag">History of ideas</span>
-    </div>
-
   </main>
 
-  <!-- ══ FOOTER — same on every page ════════════════════════ -->
   <footer class="site-footer">
-    <!-- ✏️  CHANGE: Replace with your name -->
-    &copy; <span id="yr"></span> Your Name
+    &copy; <span id="yr"></span> Eliza Haughton-Shaw
   </footer>
 
 </div>

@@ -1,16 +1,14 @@
 /* ═══════════════════════════════════════════════════════════════
-   SHARED STYLES  —  used by about.html, research.html, contact.html
+   SHARED STYLES — eliza haughton-shaw website
    ───────────────────────────────────────────────────────────────
    HOW TO CUSTOMISE:
    • Colours  → edit the variables in :root below
    • Fonts    → replace the Google Fonts link in each HTML file
-                and update --serif / --sans here
-   • Spacing  → adjust --max (page width) and padding values
+                and update --sans here
+   • Width    → adjust --max (page width)
    ═══════════════════════════════════════════════════════════════ */
 
 /* ── COLOUR & FONT VARIABLES ──────────────────────────────────
-   Change these to restyle the whole site at once.
-
    Suggested accent swaps:
      Slate blue  →  #4a6080
      Forest      →  #3d5a3e
@@ -18,13 +16,12 @@
      Warm ochre  →  #b07d3a  (current)
    ─────────────────────────────────────────────────────────── */
 :root {
-  --ink:     #1c1b18;       /* main text colour                */
-  --mid:     #6b6860;       /* secondary / meta text           */
-  --light:   #d8d2c6;       /* rule / border colour            */
-  --paper:   #ffffff;       /* page background                 */
-  --accent:  #4a6080;       /* ✏️  CHANGE: your accent colour  */
-  --max:     660px;          /* max content width               */
-  --serif:   'Cormorant Garamond', Georgia, serif;
+  --ink:     #1c1b18;
+  --mid:     #6b6860;
+  --light:   #d8d2c6;
+  --paper:   #f6f3ee;
+  --accent:  #b07d3a;
+  --max:     860px;
   --sans:    'Jost', system-ui, sans-serif;
 }
 
@@ -36,10 +33,10 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: 0.92rem;
   font-weight: 300;
-  line-height: 1.8;
-  padding: 0 1.5rem;
+  line-height: 1.7;
+  padding: 0 2rem;
 }
 
 /* ── PAGE WRAPPER ─────────────────────────────────────────── */
@@ -48,24 +45,25 @@ body {
   margin: 0 auto;
 }
 
-/* ── SITE HEADER (top of every page) ─────────────────────── */
+/* ── SITE HEADER — name and nav on same line ──────────────── */
 .site-header {
-  padding: 3rem 0 2rem;
+  padding: 2.5rem 0 2rem;
   display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  border-bottom: 1px solid var(--light);
-  margin-bottom: 3rem;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .site-name {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 5.5vw, 3rem);
+  font-family: var(--sans);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.1;
   text-decoration: none;
   color: var(--ink);
+  white-space: nowrap;
 }
 
 .site-name:hover { color: var(--accent); }
@@ -73,47 +71,49 @@ body {
 /* ── NAVIGATION ───────────────────────────────────────────── */
 nav {
   display: flex;
-  gap: 1.75rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
+  align-items: baseline;
 }
 
 nav a {
   font-size: 0.82rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--mid);
   text-decoration: none;
-  padding-bottom: 2px;
-  border-bottom: 1px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s;
 }
 
-nav a:hover,
-nav a.active {
-  color: var(--accent);
-  border-color: var(--accent);
-}
+nav a:hover { color: var(--accent); }
 
-/* ── PAGE TITLE (h1 on each page) ────────────────────────── */
+/* Active page: accent colour, no underline */
+nav a.active { color: var(--accent); }
+
+/* ── PAGE TITLE ───────────────────────────────────────────── */
 .page-title {
-  font-family: var(--serif);
-  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-family: var(--sans);
+  font-size: 0.82rem;
   font-weight: 400;
   color: var(--mid);
-  letter-spacing: 0.04em;
-  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 
 /* ── BODY TEXT ────────────────────────────────────────────── */
 p {
-  font-size: 1.05rem;
-  margin-bottom: 1.1em;
-  max-width: 60ch;
+  font-size: 0.92rem;
+  margin-bottom: 1em;
+  max-width: 72ch;
 }
 
 p:last-child { margin-bottom: 0; }
 
-em { font-family: var(--serif); font-style: italic; }
+em {
+  font-style: italic;
+  font-family: var(--sans);  /* prevents browser falling back to a serif italic */
+}
 
 a {
   color: var(--ink);
@@ -123,42 +123,58 @@ a {
 
 a:hover { color: var(--accent); }
 
-/* ── SECTION LABEL (small caps above sections) ───────────── */
+/* ── SECTION LABEL ────────────────────────────────────────── */
 .label {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   display: block;
 }
 
-/* ── DIVIDER ──────────────────────────────────────────────── */
-.divider {
-  border: none;
-  border-top: 1px solid var(--light);
-  margin: 2.5rem 0;
+/* ── DIVIDERS HIDDEN ─────────────────────────────────────── */
+hr.divider { display: none; }
+
+/* ── TAGS (research interests) ────────────────────────────── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--light);
+  border-radius: 2rem;
+  color: var(--mid);
+  letter-spacing: 0.03em;
 }
 
 /* ── FOOTER ───────────────────────────────────────────────── */
 .site-footer {
-  padding: 2.5rem 0;
-  margin-top: 4rem;
-  border-top: 1px solid var(--light);
-  font-size: 0.8rem;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  font-size: 0.78rem;
   color: var(--mid);
 }
 
 /* ── PAGE FADE-IN ─────────────────────────────────────────── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.page { animation: fadeUp 0.5s ease both; }
+.page { animation: fadeUp 0.45s ease both; }
 
 /* ── MOBILE ───────────────────────────────────────────────── */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   body { padding: 0 1.1rem; }
-  .site-header { padding-top: 2rem; }
+  .site-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1.75rem;
+  }
 }
