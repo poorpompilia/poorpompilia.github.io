@@ -1,0 +1,164 @@
+/* ═══════════════════════════════════════════════════════════════
+   SHARED STYLES  —  used by about.html, research.html, contact.html
+   ───────────────────────────────────────────────────────────────
+   HOW TO CUSTOMISE:
+   • Colours  → edit the variables in :root below
+   • Fonts    → replace the Google Fonts link in each HTML file
+                and update --serif / --sans here
+   • Spacing  → adjust --max (page width) and padding values
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── COLOUR & FONT VARIABLES ──────────────────────────────────
+   Change these to restyle the whole site at once.
+
+   Suggested accent swaps:
+     Slate blue  →  #4a6080
+     Forest      →  #3d5a3e
+     Burgundy    →  #6d2b3d
+     Warm ochre  →  #b07d3a  (current)
+   ─────────────────────────────────────────────────────────── */
+:root {
+  --ink:     #1c1b18;       /* main text colour                */
+  --mid:     #6b6860;       /* secondary / meta text           */
+  --light:   #d8d2c6;       /* rule / border colour            */
+  --paper:   #f6f3ee;       /* page background                 */
+  --accent:  #b07d3a;       /* ✏️  CHANGE: your accent colour  */
+  --max:     660px;          /* max content width               */
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --sans:    'Jost', system-ui, sans-serif;
+}
+
+/* ── RESET ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  padding: 0 1.5rem;
+}
+
+/* ── PAGE WRAPPER ─────────────────────────────────────────── */
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+/* ── SITE HEADER (top of every page) ─────────────────────── */
+.site-header {
+  padding: 3rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-bottom: 1px solid var(--light);
+  margin-bottom: 3rem;
+}
+
+.site-name {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.site-name:hover { color: var(--accent); }
+
+/* ── NAVIGATION ───────────────────────────────────────────── */
+nav {
+  display: flex;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── PAGE TITLE (h1 on each page) ────────────────────────── */
+.page-title {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-weight: 400;
+  color: var(--mid);
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+}
+
+/* ── BODY TEXT ────────────────────────────────────────────── */
+p {
+  font-size: 1.05rem;
+  margin-bottom: 1.1em;
+  max-width: 60ch;
+}
+
+p:last-child { margin-bottom: 0; }
+
+em { font-family: var(--serif); font-style: italic; }
+
+a {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--accent); }
+
+/* ── SECTION LABEL (small caps above sections) ───────────── */
+.label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* ── DIVIDER ──────────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--light);
+  margin: 2.5rem 0;
+}
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+.site-footer {
+  padding: 2.5rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid var(--light);
+  font-size: 0.8rem;
+  color: var(--mid);
+}
+
+/* ── PAGE FADE-IN ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page { animation: fadeUp 0.5s ease both; }
+
+/* ── MOBILE ───────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  body { padding: 0 1.1rem; }
+  .site-header { padding-top: 2rem; }
+}

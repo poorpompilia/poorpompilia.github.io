@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — Your Name</title>
+  <meta name="description" content="Publications, journal articles, book chapters and work in progress." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ── Research-page-only styles ────────────────────────── -->
+  <style>
+    /* Section heading (Books, Articles, etc.) */
+    .pub-section-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+      margin-top: 2.5rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--light);
+    }
+
+    .pub-section-title:first-of-type { margin-top: 0; }
+
+    /* Individual publication entry */
+    .pub-list {
+      list-style: none;
+    }
+
+    .pub-list li {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 0 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--light);
+    }
+
+    .pub-list li:last-child { border-bottom: none; }
+
+    /* Year column */
+    .pub-year {
+      font-size: 0.8rem;
+      color: var(--mid);
+      padding-top: 0.2rem;
+      white-space: nowrap;
+    }
+
+    /* Title + venue */
+    .pub-body {}
+
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .pub-title a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .pub-title a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .pub-venue {
+      font-size: 0.82rem;
+      color: var(--mid);
+      margin-top: 0.15rem;
+    }
+
+    /* Status badge (Forthcoming, Under review, etc.) */
+    .badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border: 1px solid var(--light);
+      border-radius: 2rem;
+      color: var(--mid);
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 480px) {
+      .pub-list li { grid-template-columns: 1fr; }
+      .pub-year { margin-bottom: 0.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ SITE HEADER ════════════════════════════════════════ -->
+  <header class="site-header">
+    <a class="site-name" href="about.html">Your Name</a><!-- ✏️  CHANGE: your name -->
+    <nav>
+      <a href="about.html">About</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <!-- ════════════════════════════════════════════════════════ -->
+
+
+  <main>
+    <p class="page-title">Research &amp; Publications</p>
+
+    <!-- ══════════════════════════════════════════════════════
+         BOOKS
+         ✏️  HOW TO EDIT:
+           • Change the title inside <em>...</em>
+           • Edit the description text after the <br>
+           • Add a link: wrap the title in <a href="URL">...</a>
+           • Add a new book: copy an entire <li>...</li> block
+         ══════════════════════════════════════════════════════ -->
+    <h2 class="pub-section-title">Books</h2>
+
+    <ul class="pub-list">
+
+      <li>
+        <div class="pub-year">—</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            <em>The Associative Imagination</em>
+            <span class="badge">Under contract</span>
+          </div>
+          <div class="pub-venue">
+            Edited with Dr Louis Klee. Oxford Twenty-First Century Approaches
+            to Literature series. Oxford University Press.
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">—</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            <em>Writing Eccentricity: Character and Form, Johnson to Dickens</em>
+            <span class="badge">In progress</span>
+          </div>
+          <div class="pub-venue">First draft of manuscript complete.</div>
+        </div>
+      </li>
+
+    </ul>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         JOURNAL ARTICLES & BOOK CHAPTERS
+         ✏️  HOW TO EDIT:
+           • Change the year in <div class="pub-year">
+           • Edit or add a link: <a href="URL">article title</a>
+           • Edit the venue (journal name, volume, page numbers)
+           • To add a new article: copy a <li>...</li> block
+           • To mark something forthcoming: add <span class="badge">Forthcoming</span>
+         ══════════════════════════════════════════════════════ -->
+    <h2 class="pub-section-title">Journal Articles &amp; Book Chapters</h2>
+
+    <ul class="pub-list">
+
+      <li>
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            'Clare's Byronic Impersonation'
+            <span class="badge">Forthcoming</span>
+          </div>
+          <div class="pub-venue">
+            In <em>Poetic Allusion in the Long Nineteenth Century</em>,
+            ed. James Williams and Jane Wright. Cambridge University Press.
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            'Habit'
+            <span class="badge">Forthcoming</span>
+          </div>
+          <div class="pub-venue">
+            In <em>The Oxford Handbook of Romantic Poetry</em>,
+            ed. Andrew Hodgson and Matthew Scott. Oxford University Press.
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <div class="pub-title">'Character'</div>
+          <div class="pub-venue">
+            In <em>The Oxford Handbook to Jane Austen</em>,
+            ed. Freya Johnston and John Mullan. Oxford University Press.
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            'Writing and Embodiment'
+            <span class="badge">Under consideration</span>
+          </div>
+          <div class="pub-venue"><em>New Formations</em></div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <div class="pub-title">'Dreaming Lydia Davis'</div>
+          <div class="pub-venue">
+            In <em>Lydia Davis</em>, ed. Lola Boorman and Julie Tanner.
+            University of Edinburgh Press.
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2025</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            '"The set is now broken": Sibling Influence in the work of
+            Charles Lamb and William Wordsworth'
+          </div>
+          <div class="pub-venue">
+            <em>Textual Practice</em>, 39.3, 1458–1477
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2022</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            'Habit, Romanticism, and the Literary Imagination'
+          </div>
+          <div class="pub-venue">
+            Co-written with Hannah Tran.
+            <em>The Cambridge Quarterly</em>, 51.3, 188–206
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2021</div>
+        <div class="pub-body">
+          <div class="pub-title">'Charles Lamb's Imperfect Solitudes'</div>
+          <div class="pub-venue"><em>Romanticism</em>, 28.3, 233–245</div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2020</div>
+        <div class="pub-body">
+          <div class="pub-title">'"Antic Dispositions": Lear and Dickens'</div>
+          <div class="pub-venue"><em>Victorian Poetry</em>, 58.2, 29–43</div>
+        </div>
+      </li>
+
+    </ul>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         REVIEWS & INTERVIEWS
+         ══════════════════════════════════════════════════════ -->
+    <h2 class="pub-section-title">Reviews &amp; Interviews</h2>
+
+    <ul class="pub-list">
+
+      <li>
+        <div class="pub-year">2025</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            Review of Matthew Ward, <em>Romantic Poets and the Laughter of Feeling</em>
+          </div>
+          <div class="pub-venue"><em>Studies in Romanticism</em></div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2023</div>
+        <div class="pub-body">
+          <div class="pub-title">'"Our Elia": Lamb and <em>The London Magazine</em>'</div>
+          <div class="pub-venue"><em>The London Magazine</em></div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2020</div>
+        <div class="pub-body">
+          <div class="pub-title">'The Eccentricity of Lydia Davis's Essays'</div>
+          <div class="pub-venue"><em>The London Magazine</em></div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2020</div>
+        <div class="pub-body">
+          <div class="pub-title">'Writing Hunger': an interview with Emma Donoghue</div>
+          <div class="pub-venue"><em>The London Magazine</em></div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">2020</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            'Defying Gravity': review of Josh Cohen, <em>Not Working: Why We Have to Stop</em>
+          </div>
+          <div class="pub-venue"><em>The London Magazine</em></div>
+        </div>
+      </li>
+
+    </ul>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         WORK IN PROGRESS
+         ══════════════════════════════════════════════════════ -->
+    <h2 class="pub-section-title">Work in Progress</h2>
+
+    <ul class="pub-list">
+
+      <li>
+        <div class="pub-year">In progress</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            'The scale of close reading in Thomas Hardy's
+            <em>A Pair of Blue Eyes</em> (1873) and
+            <em>The Return of the Native</em> (1878)'
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">Contracted</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            'Introduction' to <em>The Associative Imagination</em>
+          </div>
+          <div class="pub-venue">
+            Co-written with Louis Klee. Oxford University Press.
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">In progress</div>
+        <div class="pub-body">
+          <div class="pub-title">'The Writer's Body'</div>
+          <div class="pub-venue">
+            In <em>Symptoms of Writing</em>, ed. Devorah Baum and Siddharth Soni.
+            Under consideration with Bloomsbury Academic.
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="pub-year">In prep</div>
+        <div class="pub-body">
+          <div class="pub-title">'Liking Isherwood'</div>
+          <div class="pub-venue">Co-written with Conrad Steel.</div>
+        </div>
+      </li>
+
+    </ul>
+
+  </main>
+
+  <footer class="site-footer">
+    &copy; <span id="yr"></span> Your Name <!-- ✏️  CHANGE: your name -->
+  </footer>
+
+</div>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

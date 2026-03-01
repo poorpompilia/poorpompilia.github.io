@@ -3,427 +3,245 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ✏️  CHANGE: Replace with your name and a short description for SEO -->
-  <title>Your Name — Researcher & Writer</title>
-  <meta name="description" content="Your Name is a researcher and freelance writer working on [your topics]. Based in [your city]." />
 
-  <!-- Fonts: Cormorant Garamond (elegant display) + DM Sans (clean body) -->
+  <!-- ═══════════════════════════════════════════════════════
+       ✏️  SEO: Edit the title and description below.
+       The description is what appears in Google search results.
+       ═══════════════════════════════════════════════════════ -->
+  <title>Your Name — Writer & Researcher</title>
+  <meta name="description" content="Writer, teacher and researcher based in South-East London. Working on Romanticism, philosophy and psychoanalysis." />
+
+  <!-- Fonts: Cormorant Garamond (headings) + Jost (body).
+       To try different fonts, visit fonts.google.com, pick a pair,
+       and replace the link href AND the font names in style.css -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ── About-page-only styles ──────────────────────────── -->
   <style>
-    /* ── Variables ─────────────────────────────────────────────── */
-    :root {
-      --ink:        #1a1a18;
-      --mid:        #6b6b60;
-      --light:      #d4cfc4;
-      --paper:      #f7f5f0;
-      --accent:     #8b4a2f;   /* ✏️  CHANGE: swap for any colour you like */
-      --max:        680px;
-      --serif:      'Cormorant Garamond', Georgia, serif;
-      --sans:       'DM Sans', system-ui, sans-serif;
+    /* Photo + bio layout */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-bottom: 2.5rem;
     }
 
-    /* ── Reset ─────────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.75;
-      padding: 0 1.5rem;
+    /* ═══════════════════════════════════════════════════════
+       PHOTO
+       ─────────────────────────────────────────────────────
+       ✏️  TO ADD YOUR REAL PHOTO:
+         1. Save your photo in the same folder as this file.
+         2. Name it  photo.jpg  (or .png — just match the
+            extension in the src="" attribute below).
+         3. Delete the placeholder <div> and uncomment the
+            <img> tag. Done!
+       ═══════════════════════════════════════════════════════ */
+    .photo-wrap {
+      width: 160px;
+      aspect-ratio: 3 / 4;
     }
 
-    /* ── Layout ────────────────────────────────────────────────── */
-    .page {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    /* ── Header ────────────────────────────────────────────────── */
-    header {
-      padding: 4rem 0 3rem;
-      border-bottom: 1px solid var(--light);
-    }
-
-    .name {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 6vw, 3.6rem);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
-    }
-
-    .tagline {
-      font-size: 0.875rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-
-    /* ── Nav ───────────────────────────────────────────────────── */
-    nav {
-      margin-top: 1.5rem;
+    /* Placeholder shown until you add a real photo */
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: var(--light);
       display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      font-size: 0.875rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--mid);
+      font-size: 0.75rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--mid);
-      text-decoration: none;
-      transition: color 0.2s;
+      border: 1px dashed var(--mid);
     }
 
-    nav a:hover { color: var(--accent); }
+    .photo-placeholder svg { opacity: 0.4; }
 
-    /* ── Sections ──────────────────────────────────────────────── */
-    section {
-      padding: 3.5rem 0;
-      border-bottom: 1px solid var(--light);
-    }
-
-    section:last-of-type { border-bottom: none; }
-
-    .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-    }
-
-    /* ── About ─────────────────────────────────────────────────── */
-    .about-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
+    /* Real photo styling (uncomment <img> below to use) */
+    .photo-real {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      float: right;
-      margin: 0 0 1rem 2rem;
-      filter: grayscale(20%);
-      shape-outside: circle();
+      object-position: center top;
+      display: block;
     }
 
-    .bio p {
-      font-size: 1.05rem;
-      margin-bottom: 1em;
-    }
-
-    .bio p:last-child { margin-bottom: 0; }
-
-    .bio em { font-family: var(--serif); font-style: italic; }
-
-    .bio a {
-      color: var(--ink);
-      text-decoration-color: var(--accent);
-      text-underline-offset: 3px;
-    }
-
-    /* ── Work list ─────────────────────────────────────────────── */
-    .work-list {
-      list-style: none;
-    }
-
-    .work-list li {
-      padding: 1rem 0;
-      border-top: 1px solid var(--light);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 0.5rem 1.5rem;
-      align-items: start;
-    }
-
-    .work-list li:first-child { border-top: none; padding-top: 0; }
-
-    .work-title {
+    /* Italic intro pull-quote */
+    .intro-quote {
       font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 400;
-    }
-
-    .work-title a {
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-
-    .work-title a:hover { border-color: var(--accent); }
-
-    .work-meta {
-      font-size: 0.825rem;
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.6;
       color: var(--mid);
-      margin-top: 0.2rem;
+      border-left: 2px solid var(--accent);
+      padding-left: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 52ch;
     }
 
-    .work-year {
-      font-size: 0.825rem;
-      color: var(--mid);
-      white-space: nowrap;
-      padding-top: 0.15rem;
-    }
-
-    /* ── Research interests ────────────────────────────────────── */
+    /* Keywords / interest tags */
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
 
     .tag {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.75rem;
+      font-size: 0.78rem;
+      padding: 0.25rem 0.75rem;
       border: 1px solid var(--light);
       border-radius: 2rem;
       color: var(--mid);
+      letter-spacing: 0.04em;
     }
 
-    /* ── Contact ───────────────────────────────────────────────── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem 2rem;
-      margin-top: 0.5rem;
-    }
-
-    .contact-item label {
-      display: block;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 0.2rem;
-    }
-
-    .contact-item a {
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 0.95rem;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-
-    .contact-item a:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── Footer ────────────────────────────────────────────────── */
-    footer {
-      padding: 2rem 0;
-      font-size: 0.8rem;
-      color: var(--mid);
-    }
-
-    /* ── Fade-in on load ───────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    header, section {
-      animation: fadeUp 0.6s ease both;
-    }
-
-    section:nth-of-type(2) { animation-delay: 0.1s; }
-    section:nth-of-type(3) { animation-delay: 0.2s; }
-    section:nth-of-type(4) { animation-delay: 0.3s; }
-    section:nth-of-type(5) { animation-delay: 0.4s; }
-
-    /* ── Mobile ────────────────────────────────────────────────── */
     @media (max-width: 520px) {
-      .contact-grid { grid-template-columns: 1fr; }
-      .about-photo  { width: 90px; height: 90px; margin-left: 1.25rem; }
-      .work-list li { grid-template-columns: 1fr; }
-      .work-year    { display: none; }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .photo-wrap {
+        width: 120px;
+        aspect-ratio: 1;
+      }
     }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- ══ HEADER ══════════════════════════════════════════════════ -->
-  <header>
-    <!-- ✏️  CHANGE: Your name -->
-    <h1 class="name">Your Name</h1>
-    <!-- ✏️  CHANGE: A one-line description of what you do -->
-    <p class="tagline">Researcher &amp; Freelance Writer</p>
+  <!-- ══ SITE HEADER — same on every page ═══════════════════ -->
+  <header class="site-header">
+    <!-- ✏️  CHANGE: Replace with your name -->
+    <a class="site-name" href="about.html">Your Name</a>
     <nav>
-      <a href="#about">About</a>
-      <a href="#writing">Writing</a>
-      <a href="#research">Research</a>
-      <a href="#contact">Contact</a>
+      <a href="about.html"   class="active">About</a>
+      <a href="research.html">Research</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
+  <!-- ════════════════════════════════════════════════════════ -->
 
-  <!-- ══ ABOUT ═══════════════════════════════════════════════════ -->
-  <section id="about">
-    <p class="section-label">About</p>
 
-    <div class="bio">
-      <!-- ✏️  CHANGE: Replace placeholder src with your photo, or delete the <img> tag -->
-      <img
-        class="about-photo"
-        src="photo.jpg"
-        alt="Portrait of Your Name"
-        onerror="this.style.display='none'"
-      />
+  <main>
 
-      <!-- ✏️  CHANGE: Write your bio here. Use <em>italics</em> for titles. -->
-      <p>
-        Your Name is a researcher and writer based in [City]. Their work focuses on
-        [your main area], exploring questions of [theme] and [theme]. They are a
-        [Fellow / PhD candidate / Associate] at [Institution].
-      </p>
-      <p>
-        Their writing has appeared in <em>Publication A</em>, <em>Publication B</em>,
-        and <a href="#">The Journal of Something</a>. Their book
-        <em><a href="#">Title of Book</a></em> was published by [Press] in [year].
-      </p>
-      <p>
-        Previously, they held positions at [University] and [Organisation].
-        They are available for commissions, collaborations, and speaking engagements.
-      </p>
+    <!-- ── PHOTO + INTRO BIO ──────────────────────────────── -->
+    <div class="about-grid">
+
+      <div class="photo-wrap">
+
+        <!-- ✏️  PLACEHOLDER — delete this <div> when you have a real photo -->
+        <div class="photo-placeholder">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          Your photo
+        </div>
+
+        <!-- ✏️  REAL PHOTO — uncomment these lines when ready:
+        <img
+          class="photo-real"
+          src="photo.jpg"
+          alt="Portrait of Your Name"
+        />
+        -->
+
+      </div>
+
+      <div>
+        <!-- ✏️  CHANGE: Edit this one-line description of yourself -->
+        <p class="intro-quote">
+          Writer, teacher and researcher based in South-East London.
+        </p>
+
+        <!-- ✏️  CHANGE: Edit your bio paragraphs here.
+             Use <em>Title</em> for italicised book/journal titles.
+             Use <a href="URL">linked text</a> to add hyperlinks. -->
+        <p>
+          Between 2021 and 2025, I was an Early-Career Research Fellow at
+          Corpus Christi College, Cambridge. Before this, I completed my
+          AHRC-funded PhD at King's College, Cambridge in 2021. Between 2017
+          and 2025, I taught extensively across eighteenth- and
+          nineteenth-century literature for various colleges of the University
+          of Cambridge.
+        </p>
+        <p>
+          I have also undertaken preclinical training in psychoanalytic
+          psychotherapy at the Institute of Psychoanalysis and at London's
+          Maudsley Hospital.
+        </p>
+      </div>
     </div>
-  </section>
 
-  <!-- ══ SELECTED WRITING ════════════════════════════════════════ -->
-  <section id="writing">
-    <p class="section-label">Selected Writing</p>
+    <!-- ── EXTENDED BIO ────────────────────────────────────── -->
+    <span class="label">Work</span>
 
-    <ul class="work-list">
-      <!-- ✏️  CHANGE: Replace with your own published pieces. Duplicate <li> blocks as needed. -->
-
-      <li>
-        <div>
-          <div class="work-title">
-            <a href="#">'Your Article Title Here'</a>
-          </div>
-          <div class="work-meta">Publication Name</div>
-        </div>
-        <div class="work-year">2024</div>
-      </li>
-
-      <li>
-        <div>
-          <div class="work-title">
-            <a href="#">'Another Piece You Have Written'</a>
-          </div>
-          <div class="work-meta">Another Publication</div>
-        </div>
-        <div class="work-year">2024</div>
-      </li>
-
-      <li>
-        <div>
-          <div class="work-title">
-            <em>Book Title</em> — your book or major report
-          </div>
-          <div class="work-meta">Publisher Name</div>
-        </div>
-        <div class="work-year">2023</div>
-      </li>
-
-      <li>
-        <div>
-          <div class="work-title">
-            <a href="#">'Essay or Long-form Article'</a>
-          </div>
-          <div class="work-meta">Journal or Magazine</div>
-        </div>
-        <div class="work-year">2022</div>
-      </li>
-
-      <li>
-        <div>
-          <div class="work-title">
-            <a href="#">'Earlier Piece'</a>
-          </div>
-          <div class="work-meta">Publication</div>
-        </div>
-        <div class="work-year">2021</div>
-      </li>
-
-    </ul>
-  </section>
-
-  <!-- ══ RESEARCH ════════════════════════════════════════════════ -->
-  <section id="research">
-    <p class="section-label">Research</p>
-
-    <!-- ✏️  CHANGE: Describe your current research focus -->
-    <p style="font-size: 1.05rem; margin-bottom: 1.25rem;">
-      Current research focuses on [topic]. This project examines [brief description],
-      drawing on [methods or disciplines]. Earlier work addressed [previous topic].
+    <!-- ✏️  CHANGE: Edit this paragraph about your main book / project -->
+    <p>
+      My work focuses mainly on Romanticism, philosophy and psychoanalysis in
+      the eighteenth and nineteenth century. My first monograph,
+      <em>Writing Eccentricity: Characters and Forms, Johnson to Dickens</em>
+      examines the scope of a familiar descriptive or evaluative term: it
+      jointly concerns 'eccentrics' as characters and 'eccentricity' as a
+      stylistic signature across a series of literary and philosophical case
+      studies. Through this unobtrusive word, it tells the (hi)story of our
+      conflicted cultural relationship to ideas as various as uniformity,
+      freedom, creativity, and productivity.
     </p>
 
-    <!-- ✏️  CHANGE: Add or remove tags that reflect your interests -->
+    <hr class="divider" />
+
+    <!-- ✏️  CHANGE: Edit this paragraph about your other projects -->
+    <p>
+      Alongside this book, I am working on two other projects. A book
+      co-edited with Dr Louis Klee, <em>The Associative Imagination</em>
+      (under contract with Oxford University Press) provides the first
+      dedicated account of the idea of 'association' in the distinct yet
+      entangled histories of literature, philosophy, and psychoanalysis.
+    </p>
+    <p>
+      A practice-based project co-researched with Professor Devorah Baum and
+      Dr Siddharth Soni is entitled <em>Symptoms of Writing</em>. It aims to
+      foreground the difficult symptoms writers face in their writing practice,
+      looking to literary, diaristic, and medical case studies to understand
+      and re-theorise the 'symptoms' of writing: blocks, paranoias, aphasias,
+      avoidance, compulsions.
+    </p>
+
+    <hr class="divider" />
+
+    <!-- ── RESEARCH INTEREST TAGS ──────────────────────────
+         ✏️  CHANGE: Add, remove, or rename these tags to reflect
+         your own research interests. Useful for searchability. -->
+    <span class="label">Research interests</span>
     <div class="tags">
-      <span class="tag">Your Research Theme</span>
-      <span class="tag">Another Theme</span>
-      <span class="tag">Methodology</span>
-      <span class="tag">Geographic Focus</span>
-      <span class="tag">Disciplinary Field</span>
+      <span class="tag">Romanticism</span>
+      <span class="tag">Philosophy</span>
+      <span class="tag">Psychoanalysis</span>
+      <span class="tag">18th-century literature</span>
+      <span class="tag">19th-century literature</span>
+      <span class="tag">Literary theory</span>
+      <span class="tag">History of ideas</span>
     </div>
-  </section>
 
-  <!-- ══ CONTACT ═════════════════════════════════════════════════ -->
-  <section id="contact">
-    <p class="section-label">Contact</p>
+  </main>
 
-    <p style="margin-bottom: 1.5rem; font-size: 1.05rem;">
-      Available for commissions, editorial collaborations, academic inquiries,
-      and speaking engagements.
-    </p>
-
-    <div class="contact-grid">
-
-      <!-- ✏️  CHANGE: Your email -->
-      <div class="contact-item">
-        <label>Email</label>
-        <a href="mailto:you@yourdomain.com">you@yourdomain.com</a>
-      </div>
-
-      <!-- ✏️  CHANGE: Your Twitter/X handle, or delete this block -->
-      <div class="contact-item">
-        <label>Twitter / X</label>
-        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener">@yourhandle</a>
-      </div>
-
-      <!-- ✏️  CHANGE: Your institution profile, or delete -->
-      <div class="contact-item">
-        <label>Institution</label>
-        <a href="#" target="_blank" rel="noopener">University Profile</a>
-      </div>
-
-      <!-- ✏️  CHANGE: Your LinkedIn, or delete -->
-      <div class="contact-item">
-        <label>LinkedIn</label>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">yourprofile</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══ FOOTER ══════════════════════════════════════════════════ -->
-  <footer>
-    <!-- ✏️  CHANGE: Your name -->
+  <!-- ══ FOOTER — same on every page ════════════════════════ -->
+  <footer class="site-footer">
+    <!-- ✏️  CHANGE: Replace with your name -->
     &copy; <span id="yr"></span> Your Name
   </footer>
 
 </div>
-
-<script>
-  // Auto-updates the year in the footer
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>
 </html>
