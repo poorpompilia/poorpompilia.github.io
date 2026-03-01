@@ -47,12 +47,13 @@ body {
 
 /* ── SITE HEADER — name and nav on same line ──────────────── */
 .site-header {
-  padding: 2.5rem 0 2rem;
+  padding: 1.25rem 0 0.75rem;
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  justify-content: space-between;
   gap: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .site-name {
